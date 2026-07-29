@@ -10,3 +10,4 @@ gemspec
 gem "irb"
 gem "rake"
 gem "rspec"
+gem "standard"

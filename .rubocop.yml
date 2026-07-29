@@ -1,6 +1,19 @@
 plugins:
   - rubocop-internal_affairs
+  - standard-custom
+  - standard-performance
   - rubocop-thoughtbot
+
+# Standard's rulesets, run through RuboCop rather than the `standardrb` CLI.
+# https://github.com/standardrb/standard#running-standards-rules-via-rubocop
+
+inherit_gem:
+  standard: config/base.yml
+  standard-custom: config/base.yml
+  standard-performance: config/base.yml
+
+AllCops:
+  SuggestExtensions: false
 
 Naming/FileName:
   Exclude:
