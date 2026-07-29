@@ -14,7 +14,3 @@ inherit_gem:
 
 AllCops:
   SuggestExtensions: false
-
-Naming/FileName:
-  Exclude:
-    - lib/rubocop-thoughtbot.rb
