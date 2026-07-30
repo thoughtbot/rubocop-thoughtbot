@@ -1,3 +1,11 @@
+Thoughtbot/NoBefore:
+  Description: 'Checks for `before` hooks in specs.'
+  Enabled: true
+  VersionAdded: '0.1.0'
+  Include:
+    - '**/*_spec.rb'
+    - '**/spec/**/*.rb'
+
 Thoughtbot/NoLet:
   Description: 'Checks for `let` and `let!` declarations in specs.'
   Enabled: true
