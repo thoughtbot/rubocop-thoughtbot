@@ -1,6 +1,9 @@
 # RuboCop::Thoughtbot
 
-A RuboCop Plugin based on thoughtbot's accumulated best-practices.
+A [RuboCop] and [Standard] plugin based on thoughtbot's accumulated best-practices.
+
+[RuboCop]: https://rubocop.org
+[Standard]: https://github.com/standardrb/standard
 
 ## Installation
 
