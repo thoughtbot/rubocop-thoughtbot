@@ -13,3 +13,10 @@ Thoughtbot/NoLet:
   Include:
     - '**/*_spec.rb'
     - '**/spec/**/*.rb'
+
+Thoughtbot/ResourcefulActions:
+  Description: 'Checks for public methods in Rails controllers outside the seven resourceful actions.'
+  Enabled: true
+  VersionAdded: '0.1.0'
+  Include:
+    - '**/app/controllers/**/*.rb'
