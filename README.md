@@ -5,25 +5,122 @@ A [RuboCop] and [Standard] plugin based on thoughtbot's accumulated best-practic
 [RuboCop]: https://rubocop.org
 [Standard]: https://github.com/standardrb/standard
 
+## Why?
+
+We believe there is more that linting can solve. And it's not just style debates
+about quotes or spaces.
+
+- The mystery guest `let` that lives 150 lines from the spec example, causing
+  [confusion and hours lost debugging]
+- The controller that grows an `activate` action, then a `publish`, until
+  [nothing about the file is predictable]
+
+These are patterns we see repeated from human developers and AIs alike. For humans,
+we solve this during code review, but slowly, inconsistently, and one developer
+at a time. For AI, we put [guidance] into `CLAUDE.md` or `AGENTS.md`. But steering
+an LLM is probabilistic, whereas a linter is deterministic. Linters let us move the
+feedback loop left, into the developer's editor and into the [agent's hooks]. That's
+what guides a codebase towards good practices and good architecture (the things that
+keep it clean and easy to maintain in 2 years time).
+
+A faster loop only helps if the feedback teaches. The person reading a message may
+be meeting the convention for the first time, and it may be the only documentation
+they ever read. A message that assumes the convention is already understood only
+helps the people who didn't need it. So each cop carries its argument with it: the
+message names what's wrong, says what to do about it, and links the reasoning.
+
+[confusion and hours lost debugging]: https://thoughtbot.com/blog/lets-not
+[nothing about the file is predictable]: https://thoughtbot.com/blog/in-relentless-pursuit-of-rest-ish-routing
+[guidance]: https://github.com/thoughtbot/guides/tree/main/rails/ai-rules
+[agent's hooks]: https://thoughtbot.com/blog/enforcing-your-ruby-style-guide-on-ai-generated-code
+
+## What to expect
+
+These cops are our opinions on clean code and maintainable software. The intention
+is for you to layer these on top of Standard, or your own RuboCop config.
+
+In time, we might be able to upstream some of them, but we're releasing a separate
+Gem to give us the freedom to rapidly experiment and iterate across a wide range of
+codebases first.
+
+Linting works great for things that are deterministic, but there are plenty of best
+practices where "it depends". Where a rule is _generally_ true we think the linting
+guidance outweighs the occasional false positive (and you can exclude the files where
+it genuinely doesn't apply). We won't always get this right, and a cop that turns out
+to be more trouble than it's worth will be removed.
+
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+This gem is not published to RubyGems yet, so install it from GitHub. Add it to
+your Gemfile:
 
-Install the gem and add to the application's Gemfile by executing:
-
-```bash
-bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG --require=false
+```ruby
+group :development, :test do
+  gem "rubocop-thoughtbot", github: "thoughtbot/rubocop-thoughtbot", require: false
+end
 ```
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+Then run `bundle install`.
 
-```bash
-gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+Next, tell your linter to load the plugin.
+
+### RuboCop
+
+In `.rubocop.yml`:
+
+```yaml
+plugins:
+  - rubocop-thoughtbot
+```
+
+### Standard
+
+In `.standard.yml`:
+
+```yaml
+plugins:
+  - rubocop-thoughtbot
 ```
 
 ## Usage
 
-TODO: Write usage instructions here
+Run your linter as usual and the cops are applied:
+
+```bash
+bundle exec rubocop
+# or
+bundle exec standardrb
+```
+
+### Excluding files
+
+Each cop is a single opinion and doesn't take options (the knobs it might expose
+would only let you turn down the argument it's making). Where a convention
+genuinely doesn't apply, exclude the file rather than reaching for a setting. An
+OmniAuth callbacks controller is the usual example: its actions are named by the
+provider, so the `ResourcefulActions` cop isn't helpful.
+
+In `.rubocop.yml`:
+
+```yaml
+Thoughtbot/ResourcefulActions:
+  Exclude:
+    - "app/controllers/users/omniauth_callbacks_controller.rb"
+```
+
+In `.standard.yml`, exclusions go under `ignore` rather than under the cop:
+
+```yaml
+plugins:
+  - rubocop-thoughtbot
+ignore:
+  - 'app/controllers/users/omniauth_callbacks_controller.rb':
+    - Thoughtbot/ResourcefulActions
+```
+
+For a single occurrence rather than a whole file, use an inline disable comment:
+
+`# rubocop:disable Thoughtbot/ResourcefulActions`, or `# standard:disable Thoughtbot/ResourcefulActions`
 
 ## Development
 

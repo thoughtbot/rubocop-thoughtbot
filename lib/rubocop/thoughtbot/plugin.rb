@@ -4,14 +4,13 @@ require "lint_roller"
 
 module RuboCop
   module Thoughtbot
-    # A plugin that integrates rubocop-thoughtbot with RuboCop's plugin system.
     class Plugin < LintRoller::Plugin
       def about
         LintRoller::About.new(
           name: "rubocop-thoughtbot",
           version: VERSION,
-          homepage: "TODO: Put your plugin's homepage URL here.",
-          description: "TODO: Put your plugin's description here."
+          homepage: "https://github.com/thoughtbot/rubocop-thoughtbot",
+          description: "A RuboCop and Standard plugin based on thoughtbot's accumulated best-practices."
         )
       end
 
