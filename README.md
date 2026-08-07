@@ -57,6 +57,8 @@ your Gemfile:
 ```ruby
 group :development, :test do
   gem "rubocop-thoughtbot", github: "thoughtbot/rubocop-thoughtbot", require: false
+  # Or via SSH while the repo is private
+  # gem "rubocop-thoughtbot", git: "git@github.com:thoughtbot/rubocop-thoughtbot.git", require: false
 end
 ```
 
