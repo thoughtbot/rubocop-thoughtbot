@@ -94,6 +94,11 @@ bundle exec rubocop
 bundle exec standardrb
 ```
 
+## Show me the cops!
+
+All cops are located under [`lib/rubocop/cop/thoughtbot`](lib/rubocop/cop/thoughtbot),
+or you can [view the docs](docs/modules/ROOT/pages/cops_thoughtbot.adoc).
+
 ### Excluding files
 
 Each cop is a single opinion and doesn't take options (the knobs it might expose
@@ -133,8 +138,11 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ### Commands
 
 - `bundle exec rake 'new_cop[Thoughtbot/CopName]'` # Generate new cop (always run this rather than creating the files directly)
+- `bundle exec rspec`         # Tests
 - `bundle exec rubocop`       # Lint
 - `bundle exec rubocop -a`    # Auto-fix lint issues
+- `bundle exec rake docs`     # Re-generate docs
+- `bundle exec rake`          # Run all: Specs, lint, docs
 
 ## Contributing
 

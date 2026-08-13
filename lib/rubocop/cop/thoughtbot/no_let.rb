@@ -13,6 +13,7 @@ module RuboCop
       # setup visible.
       #
       # See https://thoughtbot.com/blog/lets-not
+      # See https://thoughtbot.com/blog/the-arrange-act-assert-pattern
       #
       # @example
       #   # bad

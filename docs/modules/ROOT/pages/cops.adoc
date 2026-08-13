@@ -1,0 +1,5 @@
+=== Department xref:cops_thoughtbot.adoc[Thoughtbot]
+
+* xref:cops_thoughtbot.adoc#thoughtbotnobefore[Thoughtbot/NoBefore]
+* xref:cops_thoughtbot.adoc#thoughtbotnolet[Thoughtbot/NoLet]
+* xref:cops_thoughtbot.adoc#thoughtbotresourcefulactions[Thoughtbot/ResourcefulActions]

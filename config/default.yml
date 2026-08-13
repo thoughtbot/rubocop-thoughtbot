@@ -1,3 +1,7 @@
+Thoughtbot:
+  DocumentationBaseURL: https://github.com/thoughtbot/rubocop-thoughtbot/blob/main/docs/modules/ROOT/pages
+  DocumentationExtension: '.adoc'
+
 Thoughtbot/NoBefore:
   Description: 'Checks for `before` hooks in specs.'
   Enabled: true
