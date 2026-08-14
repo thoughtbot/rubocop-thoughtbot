@@ -1,6 +1,6 @@
 ## [Unreleased]
 
-## [0.1.0] - 2026-07-29
+## [0.1.0] - 2026-08-14
 
 - Initial release
   - See [README](README.md) for context

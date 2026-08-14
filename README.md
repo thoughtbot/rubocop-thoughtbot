@@ -51,14 +51,11 @@ to be more trouble than it's worth will be removed.
 
 ## Installation
 
-This gem is not published to RubyGems yet, so install it from GitHub. Add it to
-your Gemfile:
+Add the gem to your Gemfile:
 
 ```ruby
 group :development, :test do
-  gem "rubocop-thoughtbot", github: "thoughtbot/rubocop-thoughtbot", require: false
-  # Or via SSH while the repo is private
-  # gem "rubocop-thoughtbot", git: "git@github.com:thoughtbot/rubocop-thoughtbot.git", require: false
+  gem "rubocop-thoughtbot", require: false
 end
 ```
 
@@ -146,7 +143,15 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rubocop-thoughtbot. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/rubocop-thoughtbot/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/thoughtbot/rubocop-thoughtbot. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/thoughtbot/rubocop-thoughtbot/blob/main/CODE_OF_CONDUCT.md).
+
+## Resources
+
+- [RubyGems] — the published gem
+- [Changelog] — release notes and version history
+
+[RubyGems]: https://rubygems.org/gems/rubocop-thoughtbot
+[Changelog]: CHANGELOG.md
 
 ## License
 
@@ -154,4 +159,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Rubocop::Thoughtbot project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/rubocop-thoughtbot/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the Rubocop::Thoughtbot project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/thoughtbot/rubocop-thoughtbot/blob/main/CODE_OF_CONDUCT.md).
