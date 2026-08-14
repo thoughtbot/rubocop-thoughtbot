@@ -29,6 +29,7 @@ avoids messy overrides for differing scenarios, and keeps the cost of
 setup visible.
 
 See https://thoughtbot.com/blog/lets-not
+
 See https://thoughtbot.com/blog/the-arrange-act-assert-pattern
 
 [#examples-thoughtbotnobefore]
@@ -85,6 +86,7 @@ avoids messy overrides for differing scenarios, and keeps the cost of
 setup visible.
 
 See https://thoughtbot.com/blog/lets-not
+
 See https://thoughtbot.com/blog/the-arrange-act-assert-pattern
 
 [#examples-thoughtbotnolet]

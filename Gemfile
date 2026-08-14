@@ -10,5 +10,6 @@ gemspec
 gem "irb"
 gem "rake"
 gem "rspec"
-gem "standard"
+# Constrained so Dependabot opens a PR when Standard ships a new major.
+gem "standard", "~> 1.56"
 gem "yard"

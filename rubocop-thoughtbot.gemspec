@@ -35,5 +35,5 @@ Gem::Specification.new do |spec|
   spec.metadata["default_lint_roller_plugin"] = "RuboCop::Thoughtbot::Plugin"
 
   spec.add_dependency "lint_roller", "~> 1.1"
-  spec.add_dependency "rubocop", ">= 1.72.2"
+  spec.add_dependency "rubocop", ">= 1.72.2", "< 2"
 end
