@@ -16,7 +16,7 @@
 | Yes
 | No
 | 0.1.0
-| -
+| 0.1.1
 |===
 
 Checks for `before` hooks in specs.
@@ -38,17 +38,21 @@ See https://thoughtbot.com/blog/the-arrange-act-assert-pattern
 [source,ruby]
 ----
 # bad
-before { @user = build(:user) }
+RSpec.describe User do
+  before { @user = build(:user) }
 
-it "is valid" do
-  expect(@user).to be_valid
+  it "is valid" do
+    expect(@user).to be_valid
+  end
 end
 
 # good
-it "is valid" do
-  user = build(:user)
+RSpec.describe User do
+  it "is valid" do
+    user = build(:user)
 
-  expect(user).to be_valid
+    expect(user).to be_valid
+  end
 end
 ----
 
@@ -73,7 +77,7 @@ end
 | Yes
 | No
 | 0.1.0
-| -
+| 0.1.1
 |===
 
 Checks for `let` and `let!` declarations in specs.
@@ -95,17 +99,21 @@ See https://thoughtbot.com/blog/the-arrange-act-assert-pattern
 [source,ruby]
 ----
 # bad
-let(:user) { build(:user) }
+RSpec.describe User do
+  let(:user) { build(:user) }
 
-it "is valid" do
-  expect(user).to be_valid
+  it "is valid" do
+    expect(user).to be_valid
+  end
 end
 
 # good
-it "is valid" do
-  user = build(:user)
+RSpec.describe User do
+  it "is valid" do
+    user = build(:user)
 
-  expect(user).to be_valid
+    expect(user).to be_valid
+  end
 end
 ----
 

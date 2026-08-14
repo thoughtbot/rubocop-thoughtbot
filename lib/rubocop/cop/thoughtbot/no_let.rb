@@ -18,20 +18,26 @@ module RuboCop
       #
       # @example
       #   # bad
-      #   let(:user) { build(:user) }
+      #   RSpec.describe User do
+      #     let(:user) { build(:user) }
       #
-      #   it "is valid" do
-      #     expect(user).to be_valid
+      #     it "is valid" do
+      #       expect(user).to be_valid
+      #     end
       #   end
       #
       #   # good
-      #   it "is valid" do
-      #     user = build(:user)
+      #   RSpec.describe User do
+      #     it "is valid" do
+      #       user = build(:user)
       #
-      #     expect(user).to be_valid
+      #       expect(user).to be_valid
+      #     end
       #   end
       #
       class NoLet < Base
+        include SpecGroup
+
         MSG = "Avoid `%<method>s` — set up test data inside each example so it " \
               "doesn't become a mystery guest. See https://thoughtbot.com/blog/lets-not"
 
@@ -39,6 +45,7 @@ module RuboCop
 
         def on_send(node)
           return if node.receiver
+          return unless inside_spec_group?(node)
 
           add_offense(node.loc.selector, message: format(MSG, method: node.method_name))
         end
