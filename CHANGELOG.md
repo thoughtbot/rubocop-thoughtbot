@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.1.1] - 2026-08-14
+
 ### Fixed
 
 - `Thoughtbot/NoBefore` and `Thoughtbot/NoLet` now only flag a call that belongs to
